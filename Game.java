@@ -1,10 +1,12 @@
 import java.util.Scanner;  // Import the Scanner class
+import java.util.Random; // Import the Random class
 
 public class Game {
     Scanner sc = new Scanner(System.in);  // Create a Scanner object
+    Random rand = new Random(); // Create a Random object
 
     public void play(){
-        int currentPlayer = 0;
+        int currentPlayer = rand.nextInt(2); // the first player will be randomly selected
         Player[] players = {new Player(), new Player()}; // initialize players
 
         // main game loop
