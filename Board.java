@@ -4,7 +4,11 @@ public class Board {
     public static void populate(){
         numPieces = 20;
     }
+
+    // accessor for numPieces
     public static int getNumPieces(){return numPieces;}
+
+    // modifier for numPieces
     public static Boolean removePieces(int value){
         // checks if value is positive, and if value is between 0 and (numPieces/2)
         if((Integer.signum(value) == 1) && (numPieces-value > 0) && (value <= (int)numPieces/2)){

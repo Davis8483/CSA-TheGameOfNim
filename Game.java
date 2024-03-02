@@ -4,10 +4,10 @@ import java.util.Random; // Import the Random class
 public class Game {
     Scanner sc = new Scanner(System.in);  // Create a Scanner object
     Random rand = new Random(); // Create a Random object
+    Player[] players = {new Player(), new Player()}; // initialize players
 
     public void play(){
         int currentPlayer = rand.nextInt(2); // the first player will be randomly selected
-        Player[] players = {new Player(), new Player()}; // initialize players
 
         // main game loop
         while(true){
@@ -23,8 +23,15 @@ public class Game {
             if(currentPlayer == 0){currentPlayer = 1;}
             else{currentPlayer = 0;}
 
+            // game has ended
             if(Board.getNumPieces() == 1){
+                // announce who won
                 System.out.println(String.format("%s won the game!", players[currentPlayer].name));
+
+                players[currentPlayer].addWin(); // increase win counter
+
+                // announce scores
+                System.out.println(String.format("%s has %s wins, %s has %s wins.", players[0].name, players[0].getWins(), players[1].name, players[1].getWins()));
                 break;
             }
         }
